@@ -14,24 +14,24 @@ const UserProfile = ({ params }) => {
     const [userPosts, setUserPosts] = useState([]);
 
     useEffect(() => {
-        const fetchPosts = async ()=> {
+        const fetchPosts = async () => {
             const response = await fetch(`/api/users/${params?.id}/posts`);
             const data = await response.json();
 
             setUserPosts(data);
         };
 
-        if(params?.id) fetchPosts();
+        if (params?.id) fetchPosts();
 
-    }, [params?.id]);     
+    }, [params?.id]);
 
-
+    // userName[0].toUpperCase() + userName.slice(1)
     return (
-       <Profile
-        name={userName}
-        desc = {`Welcome to ${userName}'s  profile. Explore ${userName}'s exceptional prompts and be inspired by the power of their imagination`}
-        data={userPosts}       
-       />
+        <Profile
+            name={`${userName}'s`}
+            desc={`Explore ${userName}'s exceptional prompts and be inspired by the power of their imagination`}
+            data={userPosts}
+        />
     );
 };
 

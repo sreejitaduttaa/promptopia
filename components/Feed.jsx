@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import PromptCard from "./PromptCard"
+import Image from "next/image"
 
 
 const PromptCardList = ({ data, handleTagClick }) => {
@@ -70,17 +71,23 @@ const Feed = () => {
 
   return (
     <section className="feed">
-      <form className="relative w-full flex-center">
+
+      <form className="relative w-full flex-center search_input" >
+
+        <Image src="/assets/icons/robot.png" width={24} height={24} />
+
         <input
           type="text"
           placeholder="Search for a tag or a username"
           value={searchText}
           onChange={handleSearchChange}
           required
-          className="search_input peer"
+          className="search_input_change peer"
         />
-      </form>
 
+        <Image src="/assets/icons/search.png" width={24} height={24} />
+
+      </form>
 
       {searchText ? (
         <PromptCardList
