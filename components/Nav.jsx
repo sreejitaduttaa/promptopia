@@ -33,7 +33,7 @@ const Nav = () => {
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-prompt" className="black_btn">Create Post</Link>
 
-            <button type="button" onClick={signOut} className="outline_btn">Sign Out</button>
+            <button type="button" onClick={() => {signOut({ callbackUrl: '/' });}} className="outline_btn">Sign Out</button>
 
             <Link href="/profile"> <Image src={session?.user.image }  width={37} height={37} className="rounded-full" alt="profile" /></Link>
 
@@ -67,10 +67,10 @@ const Nav = () => {
                   setToggleDropDown(false)
                 }}>Create Prompt</Link>
 
-                <button type="button" className="mt-5 w-full black_btn"
+                <button type="button" className="mt-5 w-full black_btn" 
                   onClick={() => {
                     setToggleDropDown(false);
-                    signOut();
+                    signOut({ callbackUrl: '/' });
                   }}>Sign Out</button>
               </div>
 
